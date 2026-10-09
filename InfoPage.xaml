@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LOKI.InfoPage"
+             Title="InfoPage">
+    
+    <ScrollView>
+     <StackLayout Padding="20" Spacing="10">
+         <Label Text="Информация" HorizontalOptions="Center" FontSize="24"/>
+
+         <Label Text="Как шифровать текст:" HorizontalOptions="Start" FontSize="20"/>
+         <Label HorizontalOptions="Center" FontSize="15" Text="Впишите сообщение в поле ввода, нажмите галочку, отправьте свой ключ (тот, что сверху) собеседнику, вставьте ключ собеседника в поле для него, нажмите галочку, отправьте шифрованное сообщение собеседнику. Теперь вы можете общаться, просто перебрасывая друг другу сообщения и не обмениваясь ключами."/>
+
+         <Label Text="Как дешифровать текст:" HorizontalOptions="Start" FontSize="20"/>
+         <Label HorizontalOptions="Center" FontSize="15" Text="Впишите зашифрованное сообщение в поле ввода. Переведите переключатель в положение дешифрование и нажмите на галочку."/>
+
+         <Label Text="O локальном буфере LOKI" FontSize="20" HorizontalOptions="Start"/>
+         <Label HorizontalOptions="Center" FontSize="15" Text="Копирование можно выполнить изолированно от основного буфера, так как хранить информацию в буфере Android небезопасно. Изменить используемый буфер можно нажатием на переключатель."/>
+
+         <Label Text="Как отправить шифрованное сообщение?" FontSize="20" HorizontalOptions="Start"/>
+         <Label HorizontalOptions="Center" FontSize="15" Text="Текст отправляется по кнопке *Поделиться*, или можно скопировать сообщение в буфер обмена Android."/>
+
+         <Button HorizontalOptions="Start" FontFamily="MDI" Text="&#xF004D;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Clicked="MainMenu"/>
+     </StackLayout>
+    </ScrollView>
+</ContentPage>

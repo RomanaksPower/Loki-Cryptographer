@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.OnlyBannerPage"
+             Title="">
+    <ScrollView>
+     <StackLayout Padding="20" Spacing="10">
+
+         <Image Source="appic.png" HorizontalOptions="Center" WidthRequest="200" HeightRequest="200" BackgroundColor="LightGray"/>
+
+         <Label Text="Приветствую! 🎉" FontAttributes="Bold" HorizontalOptions="Start" FontSize="24"/>
+
+         <Label Text="Спасибо, что выбрали мое приложение - я искренне рад видеть вас среди пользователей." HorizontalOptions="Start" FontSize="20"/>
+
+         <Label Text="Поначалу интерфейс может показаться непривычным или сложным. Не переживайте: я подготовил простую инструкцию. Настоятельно рекомендую открыть ее, нажмите на три точки в правом верхнем углу." FontSize="20" HorizontalOptions="Start"/>
+
+         <Label Text="Я глубоко ценю ваше доверие, поэтому не собираю никакую информацию и никуда не передаю." FontAttributes="Bold" FontSize="20" HorizontalOptions="Start"/>
+
+         <Label Text="Я один занимаюсь разработкой приложения и это очень большой труд. Я буду очень рад если вы поддержите меня монетой! Это ускорит разработку." FontSize="20" HorizontalOptions="Start"/>
+
+         <Label Text="Желаю вам приватности в интернете! ✨" FontSize="20" HorizontalOptions="Start"/>
+         
+         <Label HorizontalOptions="Center" FontSize="20" Text="*Это уведомление показывается только один раз."/>
+     </StackLayout>
+    </ScrollView>
+</ContentPage>

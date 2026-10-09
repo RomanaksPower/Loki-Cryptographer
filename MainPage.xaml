@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="LOKI.MainPage">
+
+              <Shell.TitleView>
+                <Grid ColumnDefinitions="*, *" VerticalOptions="Center" Padding="5">
+                    <Label Text="LOKI" FontSize="30" Grid.Column="0"/>
+                </Grid>
+              </Shell.TitleView>
+
+              <ContentPage.ToolbarItems >
+                  <ToolbarItem Text="Телеграмм канал"
+                 Order="Secondary"
+                  Clicked="Tgk"/>
+
+                  <ToolbarItem Text="Сообщить o6 ошибке"
+                 Order="Secondary"
+                  Clicked="BugClicked"/>
+
+                  <ToolbarItem Text="Информация"
+                 Order="Secondary"
+                  Clicked="Information"/>
+
+                  <ToolbarItem Text="Поддержать автора"
+                 Order="Secondary"
+                  Clicked="HelpAuthor"/>
+
+                  <ToolbarItem Text="{Binding CurrentVersion}"
+                 Order="Secondary"/>
+              </ContentPage.ToolbarItems>
+
+             
+             <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="*, *, *, *, *, *" 
+              Padding="10" RowSpacing="5" ColumnSpacing="5" BackgroundColor="#121212">
+
+
+              <Border StrokeShape="RoundRectangle 5" Grid.Row="0" Grid.ColumnSpan="5">
+              <Entry Placeholder="Отправьте этот промежуточный ключ собеседнику" Text="{Binding EphemeralKeyUser, Mode=TwoWay}" IsTextPredictionEnabled="False" IsSpellCheckEnabled="False"/> 
+              </Border>
+              <Button FontFamily="MDI" Text="&#xF018F;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding CopyKeyCommand}" Grid.Row="0" Grid.Column="5"/>
+
+
+              <Border StrokeShape="RoundRectangle 5" Grid.Row="1" Grid.ColumnSpan="5">
+              <Editor Placeholder="Поле ввода" MaxLength="200" Text="{Binding UserTextIn, Mode=TwoWay}" HeightRequest="160" VerticalTextAlignment="Start"/>
+              </Border>
+              <VerticalStackLayout Grid.Row="1" Grid.Column="5" VerticalOptions="Center">
+                <Button FontFamily="MDI" Text="&#xF012C;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding DistributionCommand}"/>
+                <Button FontFamily="MDI" Text="&#xF0192;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding PasteToInCommand}"/>
+                <Button FontFamily="MDI" Text="&#xF0A7A;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Clicked="DeleteAlert"/>
+              </VerticalStackLayout>
+
+
+              <Border StrokeShape="RoundRectangle 5" Grid.Row="2" Grid.ColumnSpan="5">
+              <Editor Placeholder="Поле вывода" MaxLength="200" Text="{Binding UserTextOut, Mode=TwoWay}" HeightRequest="160" VerticalTextAlignment="Start"/>
+              </Border>
+              <VerticalStackLayout Grid.Row="2" Grid.Column="5" VerticalOptions="Center">
+                <Button FontFamily="MDI" Text="&#xF048A;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding SendTextCommand}"/>
+                <Button FontFamily="MDI" Text="&#xF018F;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding CopyToOutCommand}"/>
+                <Button FontFamily="MDI" Text="&#xF0A7A;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Clicked="DeleteAlert"/>
+              </VerticalStackLayout>
+
+              <Border StrokeShape="RoundRectangle 5" Grid.Row="3" Grid.ColumnSpan="5">
+              <Entry Placeholder="Промежуточный ключ собеседника" Text="{Binding SomeoneEphemeralKey, Mode=TwoWay}" IsTextPredictionEnabled="False" IsSpellCheckEnabled="False"/> 
+              </Border>
+              <Button FontFamily="MDI" Text="&#xF0192;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding PasteCommand}" Grid.Row="3" Grid.Column="5"/>
+
+
+            <Label Text="{Binding LabelText, Mode=TwoWay}" VerticalOptions="Center" Grid.Row="4" Grid.ColumnSpan="2"/>
+            <Switch IsToggled="{Binding CryptFalse, Mode=TwoWay}" Toggled="TransmissionText" Grid.Row="4" Grid.Column="2" HorizontalOptions="Start"/>
+
+            <Label Text="{Binding GlobalLabelText, Mode=TwoWay}" VerticalOptions="Center" Grid.Row="5" Grid.ColumnSpan="2"/>
+            <Switch IsToggled="{Binding LocalOrGlobal, Mode=TwoWay}" Toggled="TransmissionLocalText" Grid.Row="5" Grid.Column="2" HorizontalOptions="Start"/>
+
+            <Label Text="Шифрование текста" FontSize="15" Grid.Row="6" Grid.ColumnSpan="6" VerticalOptions="End" HorizontalOptions="Center"/>
+            </Grid>
+</ContentPage>

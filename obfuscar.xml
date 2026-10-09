@@ -1,0 +1,39 @@
+<?xml version='1.0'?>
+<Obfuscator>
+  <!-- Пути -->
+  <Var name="InPath" value="bin\Release\net10.0-android" />
+  <Var name="OutPath" value="bin\Release\net10.0-android\Obfuscated" />
+  <Var name="SuppressReferencesError" value="true" />
+
+  <!-- Настройки защиты -->
+  <Var name="KeepPublicApi" value="false" />
+  <Var name="HideNamespaces" value="true" />
+  <Var name="EncryptStrings" value="true" />
+  <Var name="HideStrings" value="true" />
+  <Var name="SuppressILToAsm" value="true" />
+  <Var name="RenameInternal" value="true" />
+  <Var name="FullControlFlowObfuscation" value="true" />
+  <Var name="AnalyzeSerialization" value="true" />
+  <Var name="RemoveDebugAttributes" value="true" />
+  
+  <!-- защита от декомпиляции -->
+  <Var name="ControlFlowObfuscation" value="true" />
+
+
+  <Module init="default" file="$(InPath)\LOKI.dll">
+
+    <SkipType name="*MainActivity" />
+    <SkipType name="*MainApplication" />
+    <SkipType name="*App" />
+    
+    <!-- XAML-страницы -->
+    <SkipType name="*BugPage" />  
+    <SkipType name="*InfoPage" /> 
+    <SkipType name="*MainPage" /> 
+
+    <!-- not XAML-страницы -->
+    <SkipType name="*Fonts" /> 
+    <SkipType name="*MainCode" /> 
+    <SkipType name="*SendMessege" /> 
+  </Module>
+</Obfuscator>

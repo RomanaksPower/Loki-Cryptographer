@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LOKI.BugPage"
+             Title="BugPage">
+    <Grid Padding="20" RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="*, *" RowSpacing="10" ColumnSpacing="10" Margin="5">
+
+        <Label Text="Рассказать o6 ошибке или предложить улучшение" Grid.Row="0" HorizontalOptions="Start" Grid.ColumnSpan="2" FontSize="17"/>
+        <Button Grid.Row="0" Grid.Column="1" Clicked="MainMenu" FontFamily="MDI" Text="&#xF05AD;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" HorizontalOptions="End"/>
+
+        <Border StrokeShape="RoundRectangle 5" Grid.Row="1" Grid.ColumnSpan="2">
+        <Editor Placeholder=" Поле ввода сообщения" MaxLength="200" Text="{Binding UserMessege, Mode=TwoWay}" VerticalTextAlignment="Start" HeightRequest="140"/>
+        </Border>
+        
+        <Button FontFamily="MDI" Text="&#xF048A;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding ReportMessegeCommand}" Grid.Row="2" Grid.Column="2" HorizontalOptions="End"/>
+
+        <HorizontalStackLayout Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Start">
+        <Label Text="Предложить как улучшение" FontSize="15" VerticalOptions="Center"/>
+        <CheckBox IsChecked="{Binding YesOrNot}"/>
+        </HorizontalStackLayout>
+
+        <ActivityIndicator IsRunning="{Binding GoOrNot}" Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="Center"/>
+    </Grid>
+</ContentPage>
