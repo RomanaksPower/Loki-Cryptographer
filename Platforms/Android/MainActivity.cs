@@ -14,3 +14,4 @@ public class MainActivity : MauiAppCompatActivity
         Window?.SetFlags(Android.Views.WindowManagerFlags.Secure, Android.Views.WindowManagerFlags.Secure);
     }
 }
+

@@ -37,13 +37,13 @@
 
 
               <Border StrokeShape="RoundRectangle 5" Grid.Row="0" Grid.ColumnSpan="5">
-              <Entry Placeholder="Отправьте этот промежуточный ключ собеседнику" Text="{Binding EphemeralKeyUser, Mode=TwoWay}" IsTextPredictionEnabled="False" IsSpellCheckEnabled="False"/> 
+              <Entry Placeholder="Ваш промежуточный ключ" MaxLength="100" Text="{Binding EphemeralKeyUser, Mode=TwoWay}" IsTextPredictionEnabled="False" IsSpellCheckEnabled="False"/> 
               </Border>
               <Button FontFamily="MDI" Text="&#xF018F;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding CopyKeyCommand}" Grid.Row="0" Grid.Column="5"/>
 
 
               <Border StrokeShape="RoundRectangle 5" Grid.Row="1" Grid.ColumnSpan="5">
-              <Editor Placeholder="Поле ввода" MaxLength="200" Text="{Binding UserTextIn, Mode=TwoWay}" HeightRequest="160" VerticalTextAlignment="Start"/>
+              <Editor Placeholder="Поле ввода" MaxLength="300" Text="{Binding UserTextIn, Mode=TwoWay}" HeightRequest="160" VerticalTextAlignment="Start"/>
               </Border>
               <VerticalStackLayout Grid.Row="1" Grid.Column="5" VerticalOptions="Center">
                 <Button FontFamily="MDI" Text="&#xF012C;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding DistributionCommand}"/>
@@ -53,7 +53,7 @@
 
 
               <Border StrokeShape="RoundRectangle 5" Grid.Row="2" Grid.ColumnSpan="5">
-              <Editor Placeholder="Поле вывода" MaxLength="200" Text="{Binding UserTextOut, Mode=TwoWay}" HeightRequest="160" VerticalTextAlignment="Start"/>
+              <Editor Placeholder="Поле вывода" MaxLength="300" Text="{Binding UserTextOut, Mode=TwoWay}" HeightRequest="160" VerticalTextAlignment="Start"/>
               </Border>
               <VerticalStackLayout Grid.Row="2" Grid.Column="5" VerticalOptions="Center">
                 <Button FontFamily="MDI" Text="&#xF048A;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding SendTextCommand}"/>
@@ -62,7 +62,7 @@
               </VerticalStackLayout>
 
               <Border StrokeShape="RoundRectangle 5" Grid.Row="3" Grid.ColumnSpan="5">
-              <Entry Placeholder="Промежуточный ключ собеседника" Text="{Binding SomeoneEphemeralKey, Mode=TwoWay}" IsTextPredictionEnabled="False" IsSpellCheckEnabled="False"/> 
+              <Entry MaxLength="100" Placeholder="Промежуточный ключ собеседника" Text="{Binding SomeoneEphemeralKey, Mode=TwoWay}" IsTextPredictionEnabled="False" IsSpellCheckEnabled="False"/> 
               </Border>
               <Button FontFamily="MDI" Text="&#xF0192;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding PasteCommand}" Grid.Row="3" Grid.Column="5"/>
 

@@ -22,11 +22,11 @@
 		<ApplicationTitle>LOKI</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.lokicryptographer.loki</ApplicationId>
+		<ApplicationId>com.lokicryptographer.loki</ApplicationId>  <!-- companyname lokicryptographer -->
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>2.0.0</ApplicationDisplayVersion>
-		<ApplicationVersion>3</ApplicationVersion>
+		<ApplicationDisplayVersion>2.0.1</ApplicationDisplayVersion>
+		<ApplicationVersion>4</ApplicationVersion>
 
 		<RunAOTCompilation>false</RunAOTCompilation>
 		<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>

@@ -94,7 +94,6 @@ public partial class MainCode : ObservableObject
                 }
                 else
                 {// если не ввел ключ собеседника
-                    SomeoneEphemeralKey = "нет промежуточного ключа собеседника";
                     return;
                 }
 
@@ -165,7 +164,7 @@ public partial class MainCode : ObservableObject
     {
         try
         {
-            if ( UserTextIn == null || UserTextIn.Length == 0 || UserTextIn.Length <= 16 || string.IsNullOrEmpty(SomeoneEphemeralKey)) return;
+            if (string.IsNullOrEmpty(UserTextIn) || UserTextIn.Length <= 16 || string.IsNullOrEmpty(SomeoneEphemeralKey)) return;
             if (SomeoneEphemeralKey == EphemeralKeyUser) return;
 
         //Ассиметрия
@@ -324,10 +323,7 @@ public partial class MainCode : ObservableObject
     [RelayCommand]
     private async Task SendText()
     {
-        if ( UserTextOut == null || UserTextOut.Length == 0) return;  
-
-        bool star = UserTextOut.Contains('✶');
-        if (star == false) return;
+        if (string.IsNullOrEmpty(UserTextOut)) return;  
 
         await Share.Default.RequestAsync(new ShareTextRequest
             {
