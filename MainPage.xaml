@@ -31,7 +31,7 @@
                  Order="Secondary"/>
               </ContentPage.ToolbarItems>
 
-             
+            <ScrollView>
              <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="*, *, *, *, *, *" 
               Padding="10" RowSpacing="5" ColumnSpacing="5" BackgroundColor="#121212">
 
@@ -75,4 +75,5 @@
 
             <Label Text="Шифрование текста" FontSize="15" Grid.Row="6" Grid.ColumnSpan="6" VerticalOptions="End" HorizontalOptions="Center"/>
             </Grid>
+            </ScrollView>
 </ContentPage>

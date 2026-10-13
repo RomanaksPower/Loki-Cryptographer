@@ -1,10 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
+﻿
 namespace LOKI;
 
 public partial class App : Application
 {
-	public App()
+
+    public App()
 	{
 		InitializeComponent();
 	}
@@ -12,9 +12,7 @@ public partial class App : Application
 	protected override Window CreateWindow(IActivationState? activationState) =>
         new Window(new AppShell())
 	{
-		    Width = 800,
+		    Width = 400,
             Height = 650,
-	};
-
-	
+	};   
 }

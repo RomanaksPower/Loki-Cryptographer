@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LOKI.BugPage"
              Title="BugPage">
+    <ScrollView>
     <Grid Padding="20" RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="*, *" RowSpacing="10" ColumnSpacing="10" Margin="5">
 
         <Label Text="Рассказать o6 ошибке или предложить улучшение" Grid.Row="0" HorizontalOptions="Start" Grid.ColumnSpan="2" FontSize="17"/>
-        <Button Grid.Row="0" Grid.Column="1" Clicked="MainMenu" FontFamily="MDI" Text="&#xF05AD;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" HorizontalOptions="End"/>
 
         <Border StrokeShape="RoundRectangle 5" Grid.Row="1" Grid.ColumnSpan="2">
         <Editor Placeholder=" Поле ввода сообщения" MaxLength="200" Text="{Binding UserMessege, Mode=TwoWay}" VerticalTextAlignment="Start" HeightRequest="140"/>
@@ -19,6 +19,9 @@
         <CheckBox IsChecked="{Binding YesOrNot}"/>
         </HorizontalStackLayout>
 
+        <Button Grid.Row="3" Grid.Column="0" Clicked="MainMenu" FontFamily="MDI" Text="&#xF004D;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" HorizontalOptions="Start"/>
+
         <ActivityIndicator IsRunning="{Binding GoOrNot}" Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="Center"/>
     </Grid>
+    </ScrollView>
 </ContentPage>

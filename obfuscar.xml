@@ -1,24 +1,23 @@
 <?xml version='1.0'?>
 <Obfuscator>
   <!-- Пути -->
-  <Var name="InPath" value="bin\Release\net10.0-android" />
-  <Var name="OutPath" value="bin\Release\net10.0-android\Obfuscated" />
+  <Var name="InPath" value="bin\Release\net10.0-android" /> <!-- bin\Release\net10.0-android   bin\Release\net10.0-windows10.0.19041.0\win-x64 -->
+  <Var name="OutPath" value="bin\Release\net10.0-android\Obfuscated" /> <!-- bin\Release\net10.0-android\Obfuscated   bin\Release\net10.0-windows10.0.19041.0\win-x64\1Obfuscated -->
   <Var name="SuppressReferencesError" value="true" />
 
   <!-- Настройки защиты -->
   <Var name="KeepPublicApi" value="false" />
-  <Var name="HideNamespaces" value="true" />
-  <Var name="EncryptStrings" value="true" />
-  <Var name="HideStrings" value="true" />
   <Var name="SuppressILToAsm" value="true" />
-  <Var name="RenameInternal" value="true" />
   <Var name="FullControlFlowObfuscation" value="true" />
   <Var name="AnalyzeSerialization" value="true" />
   <Var name="RemoveDebugAttributes" value="true" />
+  <Var name="HideNamespaces" value="true" /> 
+  <Var name="RenameInternal" value="true" /> 
+  <Var name="EncryptStrings" value="true" />
+  <Var name="HideStrings" value="true" />
   
   <!-- защита от декомпиляции -->
   <Var name="ControlFlowObfuscation" value="true" />
-
 
   <Module init="default" file="$(InPath)\LOKI.dll">
 
@@ -27,13 +26,20 @@
     <SkipType name="*App" />
     
     <!-- XAML-страницы -->
-    <SkipType name="*BugPage" />  
-    <SkipType name="*InfoPage" /> 
-    <SkipType name="*MainPage" /> 
+    <SkipType name="*BugPage" skipProperties="true" skipMethods="true" skipFields="true" />
+    <SkipType name="*InfoPage" skipProperties="true" skipMethods="true" skipFields="true" />
+    <SkipType name="*MainPage" skipProperties="true" skipMethods="true" skipFields="true" />
+    <SkipType name="*OnlyBannerPage" skipProperties="true" skipMethods="true" skipFields="true" />
+    
+
+    <SkipType name="*XamlTypeInfo*" skipProperties="true" skipMethods="true" skipFields="true" />
+    <SkipType name="*_XamlTypeInfo*" skipProperties="true" skipMethods="true" skipFields="true" />
+    <SkipType name="*Program" />
+    <SkipType name="*Fonts" />
 
     <!-- not XAML-страницы -->
-    <SkipType name="*Fonts" /> 
-    <SkipType name="*MainCode" /> 
-    <SkipType name="*SendMessege" /> 
+    <SkipType name="*MainCode" skipProperties="true" skipMethods="false" skipFields="true" />
+    <SkipType name="*SendMessege" skipProperties="true" skipMethods="false" skipFields="true" />
+    <SkipType name="*SpaceClipboard" skipProperties="true" skipMethods="false" skipFields="true" />
   </Module>
 </Obfuscator>

@@ -15,10 +15,13 @@
          <Label HorizontalOptions="Center" FontSize="15" Text="Впишите зашифрованное сообщение в поле ввода. Переведите переключатель в положение дешифрование и нажмите на галочку."/>
 
          <Label Text="O локальном буфере LOKI" FontSize="20" HorizontalOptions="Start"/>
-         <Label HorizontalOptions="Center" FontSize="15" Text="Копирование можно выполнить изолированно от основного буфера, так как хранить информацию в буфере Android небезопасно. Изменить используемый буфер можно нажатием на переключатель."/>
+         <Label HorizontalOptions="Center" FontSize="15" Text="Копирование можно выполнить изолированно от основного буфера, так как хранить информацию в буфере устройства небезопасно. Изменить используемый буфер можно нажатием на переключатель."/>
 
          <Label Text="Как отправить шифрованное сообщение?" FontSize="20" HorizontalOptions="Start"/>
-         <Label HorizontalOptions="Center" FontSize="15" Text="Текст отправляется по кнопке *Поделиться*, или можно скопировать сообщение в буфер обмена Android."/>
+         <Label HorizontalOptions="Center" FontSize="15" Text="Текст отправляется по кнопке *Поделиться*, или можно скопировать сообщение в буфер обмена устройства."/>
+
+         <Label Text="Как разделить экран на LOKI и мессенджер? (только на Android)" FontSize="20" HorizontalOptions="Start"/>
+         <Label HorizontalOptions="Center" FontSize="15" Text="Запустите LOKI и мессенджер. Находясь в LOKI, нажатием кнопки или жестом перейдите в «Недавние приложения». Найдите карточку мессенджера. Зажмите пальцем иконку приложения в верхней части карточки (на некоторых смартфонах нужно нажать на три точки в углу карточки). Во всплывающем меню выберите пункт «Разделение экрана». Закрепив мессенджер сверху, нажмите на LOKI, закрепив его снизу."/>
 
          <Button HorizontalOptions="Start" FontFamily="MDI" Text="&#xF004D;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Clicked="MainMenu"/>
      </StackLayout>
