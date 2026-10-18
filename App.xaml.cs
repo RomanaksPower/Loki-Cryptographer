@@ -12,7 +12,7 @@ public partial class App : Application
 	protected override Window CreateWindow(IActivationState? activationState) =>
         new Window(new AppShell())
 	{
-		    Width = 400,
-            Height = 650,
+		    Width = 420,
+            Height = 780,
 	};   
 }

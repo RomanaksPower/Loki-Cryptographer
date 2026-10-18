@@ -82,4 +82,22 @@ public partial class MainPage : ContentPage
     {
         await Launcher.Default.OpenAsync(new Uri("https://pay.cloudtips.ru/p/68a611ea"));
     }
+
+    private void NowFocused(object sender, FocusEventArgs e)
+    {
+        if (sender is View input && input.Parent is Grid grid && grid.Parent is Border card)
+        {
+            card.Stroke = Color.FromArgb("#6C5CE7");
+            card.StrokeThickness = 1;
+        }
+    }
+
+    private void NowUnFocused(object sender, FocusEventArgs e)
+    {
+        if (sender is View input && input.Parent is Grid grid && grid.Parent is Border card)
+        {
+            card.ClearValue(Border.StrokeProperty);
+            card.ClearValue(Border.StrokeThicknessProperty);
+        }
+    }
 }

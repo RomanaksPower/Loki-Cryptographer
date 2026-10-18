@@ -12,7 +12,7 @@
         <Editor Placeholder=" Поле ввода сообщения" MaxLength="200" Text="{Binding UserMessege, Mode=TwoWay}" VerticalTextAlignment="Start" HeightRequest="140"/>
         </Border>
         
-        <Button FontFamily="MDI" Text="&#xF048A;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding ReportMessegeCommand}" Grid.Row="2" Grid.Column="2" HorizontalOptions="End"/>
+        <Button FontFamily="MDI" Text="&#xF186F;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding ReportMessegeCommand}" Grid.Row="2" Grid.Column="2" HorizontalOptions="End"/>
 
         <HorizontalStackLayout Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Start">
         <Label Text="Предложить как улучшение" FontSize="15" VerticalOptions="Center"/>

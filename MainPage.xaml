@@ -6,7 +6,7 @@
 
               <Shell.TitleView>
                 <Grid ColumnDefinitions="*, *" VerticalOptions="Center" Padding="5">
-                    <Label Text="LOKI" FontSize="30" Grid.Column="0"/>
+                    <Label Text="LOKI" FontAttributes="Bold" FontSize="30" Grid.Column="0"/>
                 </Grid>
               </Shell.TitleView>
 
@@ -32,48 +32,59 @@
               </ContentPage.ToolbarItems>
 
             <ScrollView>
-             <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="*, *, *, *, *, *" 
-              Padding="10" RowSpacing="5" ColumnSpacing="5" BackgroundColor="#121212">
+             <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="*, *, *, *, *, *" 
+              Padding="20" RowSpacing="5" ColumnSpacing="5" BackgroundColor="#121212">
 
 
-              <Border StrokeShape="RoundRectangle 5" Grid.Row="0" Grid.ColumnSpan="5">
-              <Entry Placeholder="Ваш промежуточный ключ" MaxLength="100" Text="{Binding EphemeralKeyUser, Mode=TwoWay}" IsTextPredictionEnabled="False" IsSpellCheckEnabled="False"/> 
+              <Border StrokeShape="RoundRectangle 12" Grid.Row="0" Grid.ColumnSpan="6" Margin="10" BackgroundColor="#1E1E1E">
+                <Grid ColumnDefinitions="*, *, *, *, *, *" Padding="8">
+                  <Entry Placeholder="Ваш промежуточный ключ" Focused="NowFocused" Unfocused="NowUnFocused" Grid.ColumnSpan="5" MaxLength="100" Text="{Binding EphemeralKeyUser, Mode=TwoWay}" IsTextPredictionEnabled="False" IsSpellCheckEnabled="False"/> 
+                  <Button FontFamily="MDI" Text="&#xF018F;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding CopyKeyCommand}" Grid.Column="6"/>
+                </Grid>
               </Border>
-              <Button FontFamily="MDI" Text="&#xF018F;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding CopyKeyCommand}" Grid.Row="0" Grid.Column="5"/>
 
 
-              <Border StrokeShape="RoundRectangle 5" Grid.Row="1" Grid.ColumnSpan="5">
-              <Editor Placeholder="Поле ввода" MaxLength="300" Text="{Binding UserTextIn, Mode=TwoWay}" HeightRequest="160" VerticalTextAlignment="Start"/>
+              <Border StrokeShape="RoundRectangle 12" Grid.Row="1" Grid.ColumnSpan="6" Margin="10" BackgroundColor="#1E1E1E" HeightRequest="160">
+              <Grid RowDefinitions="*, *, *" Padding="10, 15, 10, 5">
+                <Editor Placeholder="Поле ввода"  Focused="NowFocused" Unfocused="NowUnFocused" MaxLength="300" Grid.RowSpan="2" Text="{Binding UserTextIn, Mode=TwoWay}" VerticalTextAlignment="Start"/>
+
+                <HorizontalStackLayout Grid.Row="2" VerticalOptions="End" HorizontalOptions="End">
+                  <Button FontFamily="MDI" Text="&#xF01B4;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Clicked="DeleteAlert" Margin="3"/>
+                  <Button FontFamily="MDI" Text="&#xF0192;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding PasteToInCommand}" Margin="3"/>
+                  <Button FontFamily="MDI" Text="&#xF012C;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding DistributionCommand}" Margin="3"/>
+                </HorizontalStackLayout>
+              </Grid>
               </Border>
-              <VerticalStackLayout Grid.Row="1" Grid.Column="5" VerticalOptions="Center">
-                <Button FontFamily="MDI" Text="&#xF012C;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding DistributionCommand}"/>
-                <Button FontFamily="MDI" Text="&#xF0192;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding PasteToInCommand}"/>
-                <Button FontFamily="MDI" Text="&#xF0A7A;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Clicked="DeleteAlert"/>
-              </VerticalStackLayout>
 
 
-              <Border StrokeShape="RoundRectangle 5" Grid.Row="2" Grid.ColumnSpan="5">
-              <Editor Placeholder="Поле вывода" MaxLength="300" Text="{Binding UserTextOut, Mode=TwoWay}" HeightRequest="160" VerticalTextAlignment="Start"/>
+              <Border StrokeShape="RoundRectangle 12" Grid.Row="2" Grid.ColumnSpan="6" Margin="10" BackgroundColor="#1E1E1E" HeightRequest="170">
+                <Grid RowDefinitions="*, *, *" Padding="10, 15, 10, 5">
+                <Editor Placeholder="Поле вывода" Focused="NowFocused" Unfocused="NowUnFocused" Grid.RowSpan="2" MaxLength="700" Text="{Binding UserTextOut, Mode=TwoWay}" VerticalTextAlignment="Start" />
+
+                <HorizontalStackLayout Grid.Row="2" VerticalOptions="End" HorizontalOptions="End">
+                  <Button FontFamily="MDI" Text="&#xF01B4;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Clicked="DeleteAlert" Margin="3"/>
+                  <Button FontFamily="MDI" Text="&#xF018F;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding CopyToOutCommand}" Margin="3"/>
+                  <Button FontFamily="MDI" Text="&#xF186F;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding SendTextCommand}" Margin="3"/>
+                </HorizontalStackLayout>
+              </Grid>
               </Border>
-              <VerticalStackLayout Grid.Row="2" Grid.Column="5" VerticalOptions="Center">
-                <Button FontFamily="MDI" Text="&#xF048A;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding SendTextCommand}"/>
-                <Button FontFamily="MDI" Text="&#xF018F;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding CopyToOutCommand}"/>
-                <Button FontFamily="MDI" Text="&#xF0A7A;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Clicked="DeleteAlert"/>
-              </VerticalStackLayout>
 
-              <Border StrokeShape="RoundRectangle 5" Grid.Row="3" Grid.ColumnSpan="5">
-              <Entry MaxLength="100" Placeholder="Промежуточный ключ собеседника" Text="{Binding SomeoneEphemeralKey, Mode=TwoWay}" IsTextPredictionEnabled="False" IsSpellCheckEnabled="False"/> 
+              <Border StrokeShape="RoundRectangle 12" Grid.Row="3" Grid.ColumnSpan="6" Margin="10" BackgroundColor="#1E1E1E">
+                <Grid ColumnDefinitions="*, *, *, *, *, *" Padding="8">
+                  <Entry MaxLength="100" Placeholder="Промежуточный ключ собеседника" Grid.ColumnSpan="5" Text="{Binding SomeoneEphemeralKey, Mode=TwoWay}" IsTextPredictionEnabled="False" IsSpellCheckEnabled="False" Focused="NowFocused" Unfocused="NowUnFocused"/> 
+                  <Button FontFamily="MDI" Text="&#xF0192;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding PasteCommand}" Grid.Column="6"/>
+                </Grid>
               </Border>
-              <Button FontFamily="MDI" Text="&#xF0192;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding PasteCommand}" Grid.Row="3" Grid.Column="5"/>
 
+              <Border StrokeShape="RoundRectangle 12" Grid.Row="4" Grid.RowSpan="3" Grid.ColumnSpan="4" Margin="10" BackgroundColor="#1E1E1E">
+                <Grid ColumnDefinitions="*, *, *" RowDefinitions="Auto, Auto" Padding="10">
+                  <Label Text="{Binding LabelText, Mode=TwoWay}" Grid.Row="0" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center"/>
+                  <Switch IsToggled="{Binding CryptFalse, Mode=TwoWay}" Toggled="TransmissionText" Grid.Row="0" Grid.Column="2"/>
 
-            <Label Text="{Binding LabelText, Mode=TwoWay}" VerticalOptions="Center" Grid.Row="4" Grid.ColumnSpan="2"/>
-            <Switch IsToggled="{Binding CryptFalse, Mode=TwoWay}" Toggled="TransmissionText" Grid.Row="4" Grid.Column="2" HorizontalOptions="Start"/>
-
-            <Label Text="{Binding GlobalLabelText, Mode=TwoWay}" VerticalOptions="Center" Grid.Row="5" Grid.ColumnSpan="2"/>
-            <Switch IsToggled="{Binding LocalOrGlobal, Mode=TwoWay}" Toggled="TransmissionLocalText" Grid.Row="5" Grid.Column="2" HorizontalOptions="Start"/>
-
-            <Label Text="Шифрование текста" FontSize="15" Grid.Row="6" Grid.ColumnSpan="6" VerticalOptions="End" HorizontalOptions="Center"/>
+                  <Label Text="{Binding GlobalLabelText, Mode=TwoWay}" Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center"/>
+                  <Switch IsToggled="{Binding LocalOrGlobal, Mode=TwoWay}" Toggled="TransmissionLocalText" Grid.Row="1" Grid.Column="2"/>
+                </Grid>
+              </Border>
             </Grid>
             </ScrollView>
 </ContentPage>

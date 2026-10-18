@@ -89,7 +89,7 @@
 
     <Style TargetType="Editor">
         <Setter Property="TextColor" Value="#F4F1EA" />
-        <Setter Property="BackgroundColor" Value="#161616" />
+        <Setter Property="BackgroundColor" Value="#1E1E1E" />
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="FontSize" Value="14" />
         <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray500}}" />
@@ -111,7 +111,7 @@
 
     <Style TargetType="Entry">
         <Setter Property="TextColor" Value="#F4F1EA" />
-        <Setter Property="BackgroundColor" Value="#161616" />
+        <Setter Property="BackgroundColor" Value="#1E1E1E" />
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="FontSize" Value="14" />
         <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray500}}" />
