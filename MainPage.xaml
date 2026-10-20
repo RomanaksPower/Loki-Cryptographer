@@ -37,14 +37,14 @@
 
 
               <Border StrokeShape="RoundRectangle 12" Grid.Row="0" Grid.ColumnSpan="6" Margin="10" BackgroundColor="#1E1E1E">
-                <Grid ColumnDefinitions="*, *, *, *, *, *" Padding="8">
+                <Grid ColumnDefinitions="*, *, *, *, *, *" Padding="6,5,0,5">
                   <Entry Placeholder="Ваш промежуточный ключ" Focused="NowFocused" Unfocused="NowUnFocused" Grid.ColumnSpan="5" MaxLength="100" Text="{Binding EphemeralKeyUser, Mode=TwoWay}" IsTextPredictionEnabled="False" IsSpellCheckEnabled="False"/> 
                   <Button FontFamily="MDI" Text="&#xF018F;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding CopyKeyCommand}" Grid.Column="6"/>
                 </Grid>
               </Border>
 
 
-              <Border StrokeShape="RoundRectangle 12" Grid.Row="1" Grid.ColumnSpan="6" Margin="10" BackgroundColor="#1E1E1E" HeightRequest="160">
+              <Border StrokeShape="RoundRectangle 12" Grid.Row="1" Grid.ColumnSpan="6" Margin="10" BackgroundColor="#1E1E1E" HeightRequest="180">
               <Grid RowDefinitions="*, *, *" Padding="10, 15, 10, 5">
                 <Editor Placeholder="Поле ввода"  Focused="NowFocused" Unfocused="NowUnFocused" MaxLength="300" Grid.RowSpan="2" Text="{Binding UserTextIn, Mode=TwoWay}" VerticalTextAlignment="Start"/>
 
@@ -57,7 +57,7 @@
               </Border>
 
 
-              <Border StrokeShape="RoundRectangle 12" Grid.Row="2" Grid.ColumnSpan="6" Margin="10" BackgroundColor="#1E1E1E" HeightRequest="170">
+              <Border StrokeShape="RoundRectangle 12" Grid.Row="2" Grid.ColumnSpan="6" Margin="10" BackgroundColor="#1E1E1E" HeightRequest="180">
                 <Grid RowDefinitions="*, *, *" Padding="10, 15, 10, 5">
                 <Editor Placeholder="Поле вывода" Focused="NowFocused" Unfocused="NowUnFocused" Grid.RowSpan="2" MaxLength="700" Text="{Binding UserTextOut, Mode=TwoWay}" VerticalTextAlignment="Start" />
 
@@ -70,7 +70,7 @@
               </Border>
 
               <Border StrokeShape="RoundRectangle 12" Grid.Row="3" Grid.ColumnSpan="6" Margin="10" BackgroundColor="#1E1E1E">
-                <Grid ColumnDefinitions="*, *, *, *, *, *" Padding="8">
+                <Grid ColumnDefinitions="*, *, *, *, *, *" Padding="6,5,0,5">
                   <Entry MaxLength="100" Placeholder="Промежуточный ключ собеседника" Grid.ColumnSpan="5" Text="{Binding SomeoneEphemeralKey, Mode=TwoWay}" IsTextPredictionEnabled="False" IsSpellCheckEnabled="False" Focused="NowFocused" Unfocused="NowUnFocused"/> 
                   <Button FontFamily="MDI" Text="&#xF0192;" FontSize="25" TextColor="#F4F1EA" BackgroundColor="Transparent" Command="{Binding PasteCommand}" Grid.Column="6"/>
                 </Grid>
