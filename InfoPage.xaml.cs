@@ -7,7 +7,7 @@ public partial class InfoPage : ContentPage
 		InitializeComponent();
 	}
 
-		private async void MainMenu(object sender, EventArgs e)
+	private async void MainMenu(object sender, EventArgs e)
     {
         await Navigation.PopModalAsync();
     }

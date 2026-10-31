@@ -8,4 +8,7 @@ public class Fonts
     public string Past = "F0192";
     public string Yes = "F012C";
     public string Send = "F186F";
+    public string Share = "F0497";
+    public string QRcode = "F0432";
+    public string QRcodeScan = "F0433";
 }

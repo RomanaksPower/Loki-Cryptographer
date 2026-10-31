@@ -12,6 +12,8 @@
 
          <Label Text="Спасибо, что выбрали мое приложение - я искренне рад видеть вас среди пользователей." HorizontalOptions="Start" FontSize="20"/>
 
+         <Label Text="Перед пользованием, переведите системную тему на темную." FontAttributes="Bold" FontSize="20" HorizontalOptions="Start"/>
+
          <Label Text="Поначалу интерфейс может показаться непривычным или сложным. Не переживайте: я подготовил простую инструкцию. Настоятельно рекомендую открыть ее, нажмите на три точки в правом верхнем углу." FontSize="20" HorizontalOptions="Start"/>
 
          <Label Text="Я глубоко ценю ваше доверие, поэтому не собираю никакую информацию и никуда не передаю." FontAttributes="Bold" FontSize="20" HorizontalOptions="Start"/>

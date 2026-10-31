@@ -1,7 +1,7 @@
-﻿using LOKI.MainFile;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Platform;
-
+using SkiaSharp.Views.Maui.Controls.Hosting;
+using ZXing.Net.Maui.Controls;
 
 namespace LOKI;
 
@@ -12,6 +12,8 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
+            .UseSkiaSharp()
+            .UseBarcodeReader()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -55,6 +57,25 @@ Microsoft.Maui.Handlers.EditorHandler.Mapper.AppendToMapping("NoBorder", (handle
 #endif
 });
 
+Microsoft.Maui.Handlers.ToolbarHandler.Mapper.AppendToMapping("FixToolbar", (handler, view) =>
+{
+#if WINDOWS
+    var bar = handler.PlatformView as Microsoft.UI.Xaml.Controls.CommandBar;
+    if (bar != null)
+    {
+        bar.RequestedTheme = Microsoft.UI.Xaml.ElementTheme.Dark;
+        bar.Opening += (s, e) =>
+        {
+            var popups = Microsoft.UI.Xaml.Media.VisualTreeHelper.GetOpenPopupsForXamlRoot(bar.XamlRoot);
+            foreach (var p in popups)
+            {
+                if (p.Child is Microsoft.UI.Xaml.FrameworkElement el)
+                    el.RequestedTheme = Microsoft.UI.Xaml.ElementTheme.Dark;
+            }
+        };
+    }
+#endif
+});
 		return builder.Build();
 	}
 }

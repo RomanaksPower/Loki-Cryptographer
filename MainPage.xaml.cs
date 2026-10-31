@@ -18,6 +18,17 @@ public partial class MainPage : ContentPage
         if (BindingContext is MainCode mainCode)
         {
             mainCode.TheOnlyOneBanner(); 
+            mainCode.LoadEphemeralKey();
+        }
+    }
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+
+        if (BindingContext is MainCode mainCode)
+        {
+            mainCode.SaveEphemeralKey(); 
         }
     }
 

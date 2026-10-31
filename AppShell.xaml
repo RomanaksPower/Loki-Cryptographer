@@ -11,4 +11,5 @@
         Title="Шифрование текста"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+        
 </Shell>

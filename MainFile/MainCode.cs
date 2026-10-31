@@ -5,9 +5,11 @@ using Org.BouncyCastle.Crypto.Parameters;
 using System.Security.Cryptography;
 using System.Text;
 using Org.BouncyCastle.Security;
+using QRCoder;
 
 namespace LOKI.MainFile;
 
+[QueryProperty(nameof(SomeoneEphemeralKey), "SomeoneKey")]
 public partial class MainCode : ObservableObject
 {
     [ObservableProperty]
@@ -20,7 +22,7 @@ public partial class MainCode : ObservableObject
     private string? _ephemeralKeyUser;
     
     [ObservableProperty]
-    private string? _someoneEphemeralKey;
+    public string? _someoneEphemeralKey;
 
     [ObservableProperty]
     private bool _cryptFalse;
@@ -39,6 +41,9 @@ public partial class MainCode : ObservableObject
 
     [ObservableProperty]
     public string _globalLabelText = "Буфер LOKI";
+
+    [ObservableProperty]
+    public ImageSource? _qRcodeImage;
 
     private bool theonlyone = false;
 
@@ -330,5 +335,70 @@ public partial class MainCode : ObservableObject
                 Text = UserTextOut.ToString(),
                 Title = "Куда отправить сообщение?"
             });
+    }
+
+    [RelayCommand]
+    private async Task ShareKey()
+    {
+        if (string.IsNullOrEmpty(EphemeralKeyUser)) return;
+
+        await Share.Default.RequestAsync(new ShareTextRequest
+            {
+                Text = EphemeralKeyUser.ToString(),
+                Title = "Кому отправить промежуточный ключ?"
+            });
+    }
+
+    [RelayCommand]
+    private async Task QRcodeKey()
+    {
+        if (string.IsNullOrEmpty(EphemeralKeyUser)) return;
+
+        using (var qrGenerator = new QRCodeGenerator())
+        {
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(EphemeralKeyUser, QRCodeGenerator.ECCLevel.Q);
+            var qrCode = new PngByteQRCode(qrCodeData);
+            byte[] qrCodeBytes = qrCode.GetGraphic(20);
+
+            var navigationParameter = new Dictionary<string, object>
+            {
+                { "QrBytesKey", qrCodeBytes }
+            };
+            await Shell.Current.GoToAsync("QRCodePage", navigationParameter);
+        }
+    }
+
+    [RelayCommand]
+    private async Task ToScanningPage()
+    {
+        await Shell.Current.GoToAsync("ScanningPage");
+    }
+
+    public void SaveEphemeralKey()
+    {     
+        if (!string.IsNullOrEmpty(SomeoneEphemeralKey))
+        {
+            Preferences.Default.Clear("SomeoneEphemeralKey");
+            Preferences.Default.Set("SomeoneEphemeralKey", SomeoneEphemeralKey);
+        }
+
+        if (!string.IsNullOrEmpty(EphemeralKeyUser))
+        {
+            Preferences.Default.Clear("EphemeralKeyUser");
+            Preferences.Default.Set("EphemeralKeyUser", EphemeralKeyUser);
+        }
+    }
+
+    public async void LoadEphemeralKey()
+    {
+        if (!string.IsNullOrEmpty(Preferences.Default.Get("SomeoneEphemeralKey", "")))
+        {
+            SomeoneEphemeralKey = Preferences.Default.Get("SomeoneEphemeralKey", "");
+        }
+
+        if (!string.IsNullOrEmpty(Preferences.Default.Get("EphemeralKeyUser", "")))
+        {
+            EphemeralKeyUser = Preferences.Default.Get("EphemeralKeyUser", "");
+        }
     }
 }
